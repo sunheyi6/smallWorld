@@ -37,15 +37,21 @@ posts.forEach((post) => {
           <section id={year}>
             <h2>{year}</h2>
             <ul>
-              {postByYear[parseInt(year)].map((post: Post) => (
-                <li>
-                  <span>
-                    <FormattedDate date={post.data.pubDate} />
-                  </span>
-                  &#8195;
-                  <a href={`/blog/${post.id}`} class="contrast">{post.data.title}</a>
-                </li>
-              ))}
+              {postByYear[parseInt(year)].map((post: Post) => {
+                if (!post.data.pubDate) {
+                  console.error(`Article ${post.id} has no pubDate`);
+                  return null;
+                }
+                return (
+                  <li>
+                    <span>
+                      <FormattedDate date={post.data.pubDate} />
+                    </span>
+                    &#8195;
+                    <a href={`/blog/${post.id}`} class="contrast">{post.data.title}</a>
+                  </li>
+                );
+              })}
             </ul>
           </section>
         ))
