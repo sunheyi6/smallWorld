@@ -4,46 +4,19 @@ import RecentPosts from "@components/RecentPosts.astro";
 ---
 
 <Base>
-  <article>
-    <header><h1>smallworld</h1></header>
-    <p>
-      <strong>smallworld</strong> is a lightweight <a
-        href="https://astro.build/"
-        target="_blank">Astro</a
-      > theme for people who only want a simple blog and personal site. I built it
-      after spending hours messing with other templates and their CSS, &lt;div&gt;
-      elements, and NPM packages. The result is a minimal, responsive site that I
-      think looks pretty good.
-    </p>
-    <p>This theme uses Pico CSS in its SASS form to limit CSS output to the essentials.</p>
-
-    <h2>Design principles</h2>
-    <ul>
-      <li>Scale font sizes responsively.</li>
-      <li>Write as little CSS as possible.</li>
-      <li>Use as few classes as possible.</li>
-      <li>Maximize the use of semantic HTML.</li>
-      <li>Limit the number of installed NPM packages.</li>
-      <li>Avoid anything that would go beyond static HTML.</li>
-      <li>Don't go beyond basic Markdown.</li>
-      <li>Don't just reinvent BearBlog.</li>
-    </ul>
-    <p>If that sounds good to you, this theme might be for you!</p>
-    <h2>Features:</h2>
-    <ul>
-      <li>
-        Styled with <a href="https://picocss.com/" target="_blank">Pico CSS</a>
-      </li>
-      <li>Unnecessary CSS features switched off</li>
-      <li>Responsive element and font sizes</li>
-      <li>Typescript type safety</li>
-      <li>Blog collection with basic Markdown support</li>
-      <li>Automatic RSS feed</li>
-      <li>No client-side JavaScript</li>
-      <li>No client-side cookies</li>
-      <li>(Almost) no custom CSS</li>
-    </ul>
-  </article>
-  <hr />
+  <div class="container">
+    <!-- 个人信息部分 -->
+    <div class="card p-4 mt-5">
+      <h3 class="h3">Hey there 👋</h3>
+      <h1 class="h1">I'm Sunheyi</h1>
+      <h2 class="h2">Software Engineer and Entrepreneur</h2>
+      <p>
+        这是我的 <strong>个人博客</strong> 一个记录我生活学习所思所想的一个小地方.
+        欢迎来到我的博客，希望我分享的内容对你有一点点用!
+      </p>
+    </div>
+    <!-- 最近博客标题 -->
+    <h2 class="h2 mt-5">我最近的博客</h2>
+  </div>
   <RecentPosts />
 </Base>

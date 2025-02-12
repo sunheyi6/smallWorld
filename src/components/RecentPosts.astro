@@ -3,15 +3,14 @@ import { getCollection } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 const maxPostsToDisplay = 3;
 const recentPosts = posts.slice(0, maxPostsToDisplay);
 ---
 
 <section>
-  <h3>Recent posts</h3>
-    <div class="grid">
+  <div class="grid">
     {
       recentPosts.map((post) => (
         <article>
@@ -29,3 +28,24 @@ const recentPosts = posts.slice(0, maxPostsToDisplay);
     }
   </div>
 </section>
+<style>
+  article {
+    padding: 1rem;
+    border: 1px solid #ddd; /* 边框 */
+    border-radius: 0.5rem; /* 圆角 */
+    transition: all 0.3s ease; /* 过渡效果 */
+  }
+  article:hover {
+    background-color: #c9dbc1; /* 鼠标悬停时的背景颜色 */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* 鼠标悬停时的阴影效果 */
+    transform: translateY(-0.25rem); /* 鼠标悬停时向上移动一点 */
+  }
+  article h3 a {
+    color: #212529; /* 标题链接颜色 */
+    text-decoration: none; /* 去除下划线 */
+    transition: color 0.3s ease;
+  }
+  article h3 a:hover {
+    color: #0d6efd; /* 鼠标悬停时标题链接颜色 */
+  }
+</style>

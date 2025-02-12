@@ -23,7 +23,7 @@ type Post = CollectionEntry<"blog">;
   title={("Posts tagged with " + tag) as string}
   description={(("Posts tagged with " + tag) as string) + "."}
 >
-  <h2>Posts tagged with <span> {tag}</span>:</h2>
+  <h2><span> {tag}</span>:</h2>
   <ul>
     {
       posts.map((post: Post) => (
