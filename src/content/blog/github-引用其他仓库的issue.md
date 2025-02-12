@@ -1,6 +1,6 @@
 ---
 title: github 引用其他仓库的issue
-description: 
+description: ""
 tags:
   - 无标签
 pubDate: 2023-05-23

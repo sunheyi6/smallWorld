@@ -1,6 +1,6 @@
 ---
 title: redis的string类型
-description: 
+description: ""
 tags:
   - 无标签
 pubDate: 2021-04-23

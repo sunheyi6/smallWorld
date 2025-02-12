@@ -1,6 +1,6 @@
 ---
 title: hexo自动获取图片主色
-description: 
+description: ""
 tags:
   - 无标签
 pubDate: 2023-12-07

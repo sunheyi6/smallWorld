@@ -1,6 +1,6 @@
 ---
 title: mysql事务
-description: 
+description: ""
 tags:
   - 无标签
 pubDate: 2021-03-29
