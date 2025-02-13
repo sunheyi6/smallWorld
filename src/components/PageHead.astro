@@ -47,22 +47,15 @@ const {
   <meta property="og:image:width" content={siteConfig.og.imageWidth} />
   <meta property="og:image:height" content={siteConfig.og.imageHeight} />
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZXCQSZ8FT"
-></script>
-<script>
-  // 声明 dataLayer 变量
-  declare global {
-    interface Window {
-      dataLayer: any[];
+  <!-- Google tag (gtag.js) -->
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MZXCQSZ8FT"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
     }
-  }
+    gtag("js", new Date());
 
-  window.dataLayer = window.dataLayer || [];
-  function gtag(...args: any[]) {
-    window.dataLayer.push(args);
-  }
-  gtag("js", new Date());
-
-  gtag("config", "G-MZXCQSZ8FT");
-</script>
+    gtag("config", "G-MZXCQSZ8FT");
+  </script>
+</head>
