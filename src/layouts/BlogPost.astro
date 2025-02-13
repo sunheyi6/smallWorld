@@ -8,7 +8,7 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, pubDate, tags } = Astro.props;
 ---
 
-<article>
+<article class="styled-article">
   <header>
     <h1>{title}</h1>
     <FormattedDate date={pubDate} />
@@ -22,4 +22,33 @@ const { title, pubDate, tags } = Astro.props;
   </header>
 
   <slot />
+  <div id="waline"></div>
 </article>
+<head>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+</head>
+<script type="module">
+  import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
+
+  init({
+    el: "#waline",
+    serverURL: "https://comment.sunheyi.com",
+  });
+</script>
+<style>
+  .styled-article {
+    margin-top: 20px; /* 下沉 20px */
+    padding: 20px; /* 添加内边距，使其看起来更美观 */
+    border: 1px solid #ccc; /* 添加边框，使其看起来更美观 */
+    border-radius: 10px; /* 增加圆角半径，使其看起来更圆 */
+    background-image: linear-gradient(
+      to bottom right,
+      #e5efd7,
+      #356c93
+    ); /* 添加颜色渐变，使其看起来更美观 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影，使其看起来更美观 */
+  }
+</style>
