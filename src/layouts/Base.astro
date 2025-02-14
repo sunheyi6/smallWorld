@@ -37,22 +37,27 @@ const { title, description, ogType = "website" } = Astro.props;
     width: 80%;
   }
   /* 媒体查询，针对小屏幕设备（如手机） */
-@media (max-width: 767px) {
+  @media (max-width: 767px) {
     .container {
-        /* 在移动端不限制宽度，即宽度为 100% */
-        width: 100%;
+      /* 在移动端不限制宽度，即宽度为 100% */
+      width: 100%;
     }
-}
+  }
   html {
-    /* 使用 RGBA 设置带透明度的淡蓝色背景，这里透明度为 0.3 */
-    background-color: rgba(90, 119, 224, 0.05); 
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border-radius: 10px;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
-}
-
+    font-family: Arial, sans-serif;
+    /* 模糊的背景，使用径向渐变 */
+    background:
+      radial-gradient(
+        circle at center,
+        rgba(184, 184, 217, 0.2),
+        rgba(224, 222, 189, 0.3)
+      ),
+      url("https://source.unsplash.com/random/1920x1080");
+    background-size: cover;
+    background-attachment: fixed;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
