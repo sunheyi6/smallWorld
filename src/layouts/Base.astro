@@ -36,6 +36,13 @@ const { title, description, ogType = "website" } = Astro.props;
     height: 80%;
     width: 80%;
   }
+  /* 媒体查询，针对小屏幕设备（如手机） */
+@media (max-width: 767px) {
+    .container {
+        /* 在移动端不限制宽度，即宽度为 100% */
+        width: 100%;
+    }
+}
   html {
     /* 使用 RGBA 设置带透明度的淡蓝色背景，这里透明度为 0.3 */
     background-color: rgba(90, 119, 224, 0.05); 
