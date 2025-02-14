@@ -34,5 +34,18 @@ const { title, description, ogType = "website" } = Astro.props;
 <style>
   .container {
     height: 80%;
+    width: 80%;
+  }
+  html {
+    /* 使用 RGBA 设置带透明度的淡蓝色背景，这里透明度为 0.3 */
+    background-color: rgba(90, 119, 224, 0.05); 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
   }
 </style>
