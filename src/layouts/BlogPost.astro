@@ -9,7 +9,7 @@ const { title, pubDate, tags } = Astro.props;
 ---
 
 <article class="styled-article">
-  <header>
+  <header class="styled-header">
     <h1>{title}</h1>
     <FormattedDate date={pubDate} />
     {
@@ -39,6 +39,17 @@ const { title, pubDate, tags } = Astro.props;
   });
 </script>
 <style>
+  .styled-header {
+    margin-top: 20px; /* 下沉 20px */
+    padding: 20px; /* 添加内边距，使其看起来更美观 */
+    border-radius: 10px; /* 增加圆角半径，使其看起来更圆 */
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(229, 239, 215, 0.3),
+      /* 透明度设置为 0.7 */ rgba(53, 108, 147, 0.2) /* 透明度设置为 0.7 */
+    ); /* 添加颜色渐变，使其看起来更美观 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影，使其看起来更美观 */
+  }
   .styled-article {
     margin-top: 20px; /* 下沉 20px */
     padding: 20px; /* 添加内边距，使其看起来更美观 */
