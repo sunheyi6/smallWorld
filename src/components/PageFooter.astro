@@ -3,13 +3,13 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-  <p>&copy; 2024-{currentYear} Your name here</p>
-  <nav>    <ul>
-    <li><a href="/about">GitHub</a></li>
-    <li><a href="/blog">Astro</a></li>
-    {/* Add other navbar entries here */}
-  </ul>
-</nav>
+  <div id="running-time">博客已运行：<span id="time-display"></span></div>
+  <nav>
+    <ul>
+      <!-- <li><a href="/about">GitHub</a></li> -->
+      {/* Add other navbar entries here */}
+    </ul>
+  </nav>
 </footer>
 {/* CSS required to keep footer at the bottom of the page */}
 <style>
@@ -17,4 +17,68 @@ const currentYear = new Date().getFullYear();
     position: sticky;
     top: 100vh;
   }
+  footer {
+    background-color: #f4f4f4;
+    border-top: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+  }
+
+  #running-time {
+    font-size: 18px;
+    color: #333;
+  }
+
+  #time-display {
+    font-weight: bold;
+    color: #007bff;
+  }
 </style>
+<script is:inline>
+  // 设置博客创建日期（格式：年, 月（0 表示 1 月）, 日）
+  const blogCreationDate = new Date(2020, 0, 1); // 示例：2023 年 1 月 1 日
+
+  // 获取显示时间的元素
+  const timeDisplay = document.getElementById("time-display");
+
+  // 更新运行时间的函数
+  function updateRunningTime() {
+    const currentDate = new Date();
+    const timeDifference = currentDate - blogCreationDate;
+
+    // 计算年、月、日、小时、分钟和秒
+    const years = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 365));
+    const months = Math.floor(
+      (timeDifference % (1000 * 60 * 60 * 24 * 365)) /
+        (1000 * 60 * 60 * 24 * 30)
+    );
+    const days = Math.floor(
+      (timeDifference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24)
+    );
+    const hours = Math.floor(
+      (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+    // 构建显示的时间字符串
+    let timeString = "";
+    if (years > 0) timeString += `${years} 年 `;
+    if (months > 0) timeString += `${months} 月 `;
+    if (days > 0) timeString += `${days} 天 `;
+    if (hours > 0) timeString += `${hours} 小时 `;
+    if (minutes > 0) timeString += `${minutes} 分钟 `;
+    timeString += `${seconds} 秒`;
+
+    // 更新显示内容
+    timeDisplay.textContent = timeString;
+  }
+
+  // 首次更新运行时间
+  updateRunningTime();
+
+  // 每秒更新一次运行时间
+  setInterval(updateRunningTime, 1000);
+</script>
